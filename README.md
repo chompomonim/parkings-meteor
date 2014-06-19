@@ -16,5 +16,5 @@ App should run on Ubuntu and MacOSX. Tested on Ubuntu 14.4
  0. $ sudo apt-get install npm
  1. $ curl https://install.meteor.com | sh
  2. $ npm install -g meteorite
- 3. $ meteor
+ 3. $ mrt
  3. Open http://localhost:3000 in your browser
