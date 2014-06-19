@@ -26,6 +26,16 @@ Template.maps.events
             )
             markers.push marker
 
+            # Attach info window to marker.
+            infoWindow = new google.maps.InfoWindow(content: UI.toHTML(Template["infoWindowContent"].extend(
+                title: place.LOCATION
+                coord: place.COORDINATES
+                address: place.ADDRESS
+                status: place['2_STATUS_HIGH_LEVEL']
+            )))
+            google.maps.event.addListener marker, 'click', () ->
+                infoWindow.open(window.map, marker)
+
             console.log "Added: " + place.LOCATION
 
         markerCluster = new MarkerClusterer(window.map, markers)
