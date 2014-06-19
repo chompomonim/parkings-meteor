@@ -6,10 +6,19 @@
     <div class="page-container">
         <div class="container">
             <div class="row row-offcanvas row-offcanvas-left">
+                {{> maps}}
                 {{> imported_data}}
             </div>
         </div>
-    </div></body>
+    </div>
+</body>
+
+<template name="maps">
+    <h1> Bike parkings in San Francisco</h1>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div id="map-canvas"></div>
+    </div>
+</template>
 
 <template name="imported_data">
     <div class="container">
