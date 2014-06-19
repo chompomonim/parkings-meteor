@@ -1,5 +1,6 @@
 <head>
   <title>Parkings</title>
+  <script type="text/javascript" src="markerclusterer.js"></script>
 </head>
 
 <body>
@@ -7,7 +8,7 @@
         <div class="container">
             <div class="row row-offcanvas row-offcanvas-left">
                 {{> maps}}
-                {{> imported_data}}
+                <!-- {{> imported_data}} -->
             </div>
         </div>
     </div>
@@ -15,6 +16,7 @@
 
 <template name="maps">
     <h1> Bike parkings in San Francisco</h1>
+    <input type="button" value="Show parkings" class="btn" />
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div id="map-canvas"></div>
     </div>

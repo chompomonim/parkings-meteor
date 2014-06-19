@@ -10,5 +10,22 @@ Template.maps.rendered = ->
             zoom: 12
             mapTypeId: google.maps.MapTypeId.MAP
 
-        map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
-        map.setCenter center
+        window.map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+        window.map.setCenter center
+
+Template.maps.events
+    'click input': ->
+        markers = []
+        places = Parkings.find()
+        places.forEach (place) ->
+            c = place.COORDINATES.replace(/[() ]/g, '').split(',')
+            coord = new google.maps.LatLng(parseFloat(c[0]), parseFloat(c[1]))
+            marker = new google.maps.Marker(
+                position: coord
+                title: place.LOCATION
+            )
+            markers.push marker
+
+            console.log "Added: " + place.LOCATION
+
+        markerCluster = new MarkerClusterer(window.map, markers)
